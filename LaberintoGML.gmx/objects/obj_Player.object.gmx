@@ -58,25 +58,25 @@ Key_Magic = false;
 
 if (keyboard_check(vk_left))
     {
-    if (!place_meeting(x-velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x-velocidad,y,obj_PuertaPadre))
+    if (!place_meeting(x-velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x-velocidad,y,obj_PuertaPadre))&amp;&amp;(!place_meeting(x-velocidad,y,obj_Door))
     {x = x - velocidad;}
     }
 
 if (keyboard_check(vk_right))
     {    
-    if (!place_meeting(x+velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x+velocidad,y,obj_PuertaPadre))
+    if (!place_meeting(x+velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x+velocidad,y,obj_PuertaPadre))&amp;&amp;(!place_meeting(x+velocidad,y,obj_Door))
     {x = x + velocidad;}
     }
 
 if (keyboard_check(vk_up))
     {
-    if (!place_meeting(x,y-velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y-velocidad,obj_PuertaPadre))
+    if (!place_meeting(x,y-velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y-velocidad,obj_PuertaPadre))&amp;&amp;(!place_meeting(x,y-velocidad,obj_Door))
     {y = y - velocidad;}
     }
     
 if (keyboard_check(vk_down))
     {
-    if (!place_meeting(x,y+velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y+velocidad,obj_PuertaPadre))
+    if (!place_meeting(x,y+velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y+velocidad,obj_PuertaPadre))&amp;&amp;(!place_meeting(x,y+velocidad,obj_Door))
     {y = y + velocidad;}
     }
 </string>
@@ -233,8 +233,144 @@ if (Key_Magic)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Gestión de diamantes y puntuación
+
+/* se debe añadir el codigo necesario para que el diamante suene al ser recolectado,
+se destruya y añada puntuación. */
+
+/* codigo de diamante ya ha sido creado */
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>712</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>-1</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_if_life</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>224</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_another_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>11</kind>
+            <room>Game_over</room>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_Lives">
+      <action>
+        <libid>1</libid>
+        <id>711</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_life</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_EnemigoPadre">
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -252,11 +388,65 @@ if (Key_Magic)
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
-audio_play_sound(snd_Dead, 10, false);
+audio_play_sound(snd_Dead,10,false);
 room_restart();
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>711</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_life</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>-1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>701</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_score</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>-50</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="4" ename="obj_Goal">

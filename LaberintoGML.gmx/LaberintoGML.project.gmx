@@ -9,6 +9,10 @@
     <sound>sound\snd_Diamond</sound>
     <sound>sound\snd_Door</sound>
     <sound>sound\snd_Goal</sound>
+    <sound>sound\snd_Explode</sound>
+    <sound>sound\snd_you_win</sound>
+    <sound>sound\snd_Game_over</sound>
+    <sound>sound\snd_Lives</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Diamond</sprite>
@@ -33,11 +37,17 @@
       <sprite>sprites\spr_Door_Silver</sprite>
       <sprite>sprites\spr_Door_Magic</sprite>
     </sprites>
+    <sprite>sprites\spr_Lives</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\GAME_OVER0</background>
+    <background>background\YOU_WIN_</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\f_score</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_Diamond</object>
     <object>objects\obj_Door</object>
@@ -64,11 +74,20 @@
       <object>objects\obj_PuertaPadre</object>
     </objects>
     <object>objects\obj_Start</object>
+    <object>objects\obj_Lives</object>
+    <object>objects\obj_Lives_Counter</object>
+    <object>objects\obj_Score</object>
+    <object>objects\obj_Gameover</object>
+    <object>objects\obj_You_win</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Start</room>
     <room>rooms\Level_1</room>
     <room>rooms\Level_2</room>
+    <room>rooms\Level_3</room>
+    <room>rooms\Level_4</room>
+    <room>rooms\The_End</room>
+    <room>rooms\Game_over</room>
     <room>rooms\Level_Test</room>
   </rooms>
   <help>
