@@ -13,6 +13,7 @@
     <sound>sound\snd_you_win</sound>
     <sound>sound\snd_Game_over</sound>
     <sound>sound\snd_Lives</sound>
+    <sound>sound\snd_Intro</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Diamond</sprite>
