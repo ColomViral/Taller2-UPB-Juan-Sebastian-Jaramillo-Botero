@@ -35,14 +35,45 @@ Enemy3_width = sprite_get_width(spr_Enemy3);
 Enemy3_height = sprite_get_height(spr_Enemy3);
 Enemy4_width = sprite_get_width(spr_Enemy4);
 Enemy4_height = sprite_get_height(spr_Enemy4);
+Life_width = sprite_get_width(spr_ExtraLife);
+Life_height = sprite_get_height(spr_ExtraLife);
 
 instance_create(irandom_range(Enemy1_width/2, room_width - Enemy1_width/2), - Enemy1_height/2, obj_Enemy1);
 instance_create(irandom_range(Enemy1_width/2, room_width - Enemy1_width/2), - 5*Enemy1_height/2, obj_Enemy1);
 
 alarm[0] = 200;
-alarm[1] = 1000;
-alarm[2] = 2000;
-alarm[3] = 3000;
+alarm[1] = 400;
+alarm[2] = 1000;
+alarm[3] = 2000;
+alarm[4] = 200;
+alarm[5] = 200;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Gestión objeto ExtraLife
+
+instance_create(irandom_range(Life_width/2, room_width - Life_width/2), - Life_height/2, obj_ExtraLife);
+alarm[4] = 2500
 </string>
           </argument>
         </arguments>
@@ -68,7 +99,7 @@ alarm[3] = 3000;
             <string>/// Crea un nuevo enemigo 4
 
 instance_create(irandom_range(Enemy4_width/2, room_width - Enemy4_width/2), room_height + Enemy4_height/2, obj_Enemy4);
-alarm[3] = 300;
+alarm[3] = 200;
 </string>
           </argument>
         </arguments>
@@ -94,7 +125,7 @@ alarm[3] = 300;
             <string>/// Crea un nuevo enemigo 3
 
 instance_create(irandom_range(Enemy3_width/2, room_width - Enemy3_width/2), - Enemy3_height/2, obj_Enemy3);
-alarm[2] = 1000;
+alarm[2] = 200;
 </string>
           </argument>
         </arguments>
@@ -118,7 +149,7 @@ alarm[2] = 1000;
           <argument>
             <kind>1</kind>
             <string>instance_create(irandom_range(Enemy2_width/2, room_width - Enemy2_width/2), - Enemy2_height/2, obj_Enemy2);
-alarm [1] = 500;
+alarm [1] = 200;
 </string>
           </argument>
         </arguments>
@@ -144,7 +175,7 @@ alarm [1] = 500;
             <string>/// Crear un enemigo nuevo
 
 instance_create(irandom_range(Enemy1_width/2, room_width - Enemy1_width/2), - Enemy1_height/2, obj_Enemy1);
-alarm[0] = 500;
+alarm[0] = 200;
 </string>
           </argument>
         </arguments>

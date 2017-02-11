@@ -58,6 +58,7 @@
     <instance objName="obj_ControllerEnemy" x="32" y="32" name="inst_178BBF75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ControllerLife" x="32" y="64" name="inst_2F829019" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Island1" x="0" y="448" name="inst_5781E904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_NovaCounter" x="352" y="448" name="inst_F351C580" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

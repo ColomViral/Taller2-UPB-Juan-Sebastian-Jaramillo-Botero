@@ -26,6 +26,10 @@
     <sprite>sprites\spr_Enemy4</sprite>
     <sprite>sprites\spr_EnemyBullet1</sprite>
     <sprite>sprites\spr_EnemyBullet2</sprite>
+    <sprite>sprites\spr_ExtraLife</sprite>
+    <sprite>sprites\spr_Nova</sprite>
+    <sprite>sprites\spr_NovaCounter</sprite>
+    <sprite>sprites\spr_PowerUp</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_Water</background>
@@ -37,16 +41,20 @@
     <object>objects\obj_Island3</object>
     <object>objects\obj_PlayerPlane</object>
     <object>objects\obj_Bullet</object>
-    <object>objects\obj_ExplodeEnemy</object>
     <object>objects\obj_Enemy1</object>
-    <object>objects\obj_Enemy4</object>
+    <object>objects\obj_ExtraLife</object>
     <object>objects\obj_Enemy2</object>
     <object>objects\obj_Enemy3</object>
+    <object>objects\obj_Enemy4</object>
     <object>objects\obj_ExplodePlayer</object>
+    <object>objects\obj_ExplodeEnemy</object>
     <object>objects\obj_ControllerEnemy</object>
     <object>objects\obj_ControllerLife</object>
     <object>objects\obj_EnemyBullet1</object>
     <object>objects\obj_EnemyBullet2</object>
+    <object>objects\obj_Nova</object>
+    <object>objects\obj_PowerUp</object>
+    <object>objects\obj_NovaCounter</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_1</room>
