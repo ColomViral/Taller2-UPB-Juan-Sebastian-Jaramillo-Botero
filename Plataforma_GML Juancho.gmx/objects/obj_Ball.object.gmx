@@ -27,15 +27,55 @@
             <kind>1</kind>
             <string>/// Inicialización de las variables
 
-grav = 0.2;
+grav = 0.5;
+hsp_carry = 0;
 hsp = 0;
 vsp = 0;
-movespeed = 4;
 
-jumpspeed_normal = 7;
-jumpspeed_powerup = 10;
+movespeed_normal = 4;
+movespeed_powerup = 10;
+movespeed = movespeed_normal;
 
+jumpspeed_normal = 12;
+jumpspeed_powerup = 15;
 jumpspeed = jumpspeed_normal
+
+jumps = 0;
+jumpsmax = 2;
+
+if (global.checkpointR == room)
+{
+    x = global.checkpointx;
+    y = global.checkpointy;
+}
+
+key_down = 0;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>movespeed = movespeed_normal;
+sprite_index = spr_Ball;
 </string>
           </argument>
         </arguments>
@@ -88,19 +128,48 @@ sprite_index = spr_Ball;
 key_right = keyboard_check(vk_right);
 key_left =  keyboard_check(vk_left);
 key_space =  keyboard_check_pressed(vk_space);
+key_space_held = keyboard_check(vk_space);
+key_down =  keyboard_check(vk_down);
 
 // Operaciones con las entradas de teclado
 move = key_right - key_left;
 hsp = move * movespeed;
 
-// Colisión horizontal
-if(place_meeting(x+hsp, y, obj_Wall)){
-    while(!place_meeting(x+sign(hsp), y, obj_Wall)){
-        x += sign(hsp);
+if (vsp &lt; 10){vsp += grav;}
+
+if(place_meeting(x,y+1,obj_Wall))
+    {
+    jumps = jumpsmax;
     }
+
+if (key_space) &amp;&amp; (jumps &gt; 0)
+    {
+    jumps -= 1;
+    vsp = -jumpspeed;
+    }
+
+if (key_space) &amp;&amp; (place_meeting(x+1,y,obj_Wall) || place_meeting(x-1,y,obj_Wall))
+    {
+    vsp = -jumpspeed
+    }
+    
+// Salto variable
+
+if(vsp &lt; 0) &amp;&amp; (!key_space_held) vsp = max(vsp, -jumpspeed/2);
+
+var hsp_final = hsp + hsp_carry;
+hsp_carry = 0;
+
+// Colisión horizontal
+if(place_meeting(x+hsp_final, y, obj_Wall)){
+    while(!place_meeting(x+sign(hsp_final), y, obj_Wall)){
+        x += sign(hsp_final);
+    }
+    hsp_final = 0;
     hsp = 0;
 }
-x += hsp; 
+x += hsp_final;
+
 // Colisión vertical
 if(place_meeting(x, y+vsp, obj_Wall)){
     while(!place_meeting(x, y+sign(vsp), obj_Wall)){
@@ -110,11 +179,17 @@ if(place_meeting(x, y+vsp, obj_Wall)){
 }
 y += vsp;
 
-if (vsp &lt; 10){vsp += grav;}
+// ANIMACIONES PERSONAJE:
 
-if(place_meeting(x,y+1,obj_Wall)){
-    vsp = key_space * -jumpspeed;
-}
+if (move != 0) image_xscale = move;
+if (place_meeting(x,y+1,obj_Wall))
+    {
+    sprite_index = spr_Ball;
+    }
+    else
+    {
+        if (vsp &lt; 0) sprite_index = spr_Balljump; else sprite_index = spr_Ballmid_air;
+    }
 
 </string>
           </argument>

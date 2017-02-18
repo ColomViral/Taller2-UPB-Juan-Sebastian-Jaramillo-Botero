@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_Dead</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Wall</sprite>
     <sprite>sprites\spr_Ball</sprite>
@@ -12,17 +14,46 @@
     <sprite>sprites\spr_Ball_B</sprite>
     <sprite>sprites\spr_EnemyLeft</sprite>
     <sprite>sprites\spr_EnemyRight</sprite>
+    <sprite>sprites\spr_EnemyAfraidR</sprite>
+    <sprite>sprites\spr_EnemyAfraidL</sprite>
+    <sprite>sprites\spr_DoubleJump</sprite>
+    <sprite>sprites\spr_LevelPadre</sprite>
+    <sprite>sprites\spr_Checkpoint</sprite>
+    <sprite>sprites\spr_Plattform</sprite>
+    <sprite>sprites\spr_Portal</sprite>
+    <sprite>sprites\spr_MovPlatform</sprite>
+    <sprite>sprites\spr_Ballmove</sprite>
+    <sprite>sprites\spr_Balljump</sprite>
+    <sprite>sprites\spr_Ballmid_air</sprite>
+    <sprite>sprites\spr_Walldirt</sprite>
+    <sprite>sprites\spr_Background</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_Death.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_Wall</object>
     <object>objects\obj_Ball</object>
     <object>objects\obj_PowerUp</object>
-    <object>objects\obj_Enemy</object>
+    <object>objects\obj_EnemyFly</object>
+    <object>objects\obj_EnemyAfraid</object>
+    <object>objects\obj_EnemynnotAfraid</object>
+    <object>objects\obj_SpeedUp</object>
+    <object>objects\obj_Life_Score</object>
+    <object>objects\obj_Portal</object>
+    <object>objects\obj_Checkpoint</object>
+    <object>objects\obj_Plattform</object>
+    <object>objects\obj_MovPlattform</object>
+    <object>objects\obj_Walldirt</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_Initialize</room>
     <room>rooms\room0</room>
+    <room>rooms\room3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
