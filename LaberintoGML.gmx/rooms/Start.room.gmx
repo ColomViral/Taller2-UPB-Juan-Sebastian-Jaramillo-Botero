@@ -10,7 +10,20 @@
   <persistent>0</persistent>
   <colour>12615680</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>/// Variables globales:
+
+global.checkpoint = noone;
+global.checkpointR = noone;
+global.checkpointx = noone;
+global.checkpointy = noone;
+
+// BOSS
+
+enum e_state
+{
+    idle,
+    chase
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>lives = 3;
 depth = -100;
+score = 0;
 </string>
           </argument>
         </arguments>
@@ -49,37 +50,14 @@ depth = -100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_red)
-draw_set_font(f_score)
+            <string>draw_set_font(f_score);
+draw_set_colour(c_red);
+draw_text(view_xview[0] +440,view_yview[0] +1, "puntos: ");
+draw_text(view_xview[0] +560,view_yview[0] +1, score);
+draw_text(view_xview[0] +80,view_yview[0] +1, "vidas: ");
+draw_text(view_xview[0] +180,view_yview[0] +1, lives);
+
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>713</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string>Lives: </string>
           </argument>
         </arguments>
       </action>

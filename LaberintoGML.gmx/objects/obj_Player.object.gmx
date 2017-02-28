@@ -32,6 +32,37 @@ Key_Black = false;
 Key_Gold = false;
 Key_Silver = false;
 Key_Magic = false;
+
+if (global.checkpointR == room)
+{
+    x = global.checkpointx;
+    y = global.checkpointy;
+}
+
+can_shoot = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_shoot = 1;
 </string>
           </argument>
         </arguments>
@@ -58,27 +89,36 @@ Key_Magic = false;
 
 if (keyboard_check(vk_left))
     {
+    sprite_index = spr_PlayerLeft;
     if (!place_meeting(x-velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x-velocidad,y,obj_PuertaPadre))&amp;&amp;(!place_meeting(x-velocidad,y,obj_Door))
     {x = x - velocidad;}
     }
 
 if (keyboard_check(vk_right))
-    {    
+    {
+    sprite_index = spr_PlayerRight;    
     if (!place_meeting(x+velocidad,y,obj_Wall))&amp;&amp;(!place_meeting(x+velocidad,y,obj_PuertaPadre))&amp;&amp;(!place_meeting(x+velocidad,y,obj_Door))
     {x = x + velocidad;}
     }
 
 if (keyboard_check(vk_up))
     {
+    sprite_index = spr_PlayerUp;
     if (!place_meeting(x,y-velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y-velocidad,obj_PuertaPadre))&amp;&amp;(!place_meeting(x,y-velocidad,obj_Door))
     {y = y - velocidad;}
     }
     
 if (keyboard_check(vk_down))
     {
+    sprite_index = spr_PlayerDown;
     if (!place_meeting(x,y+velocidad,obj_Wall))&amp;&amp;(!place_meeting(x,y+velocidad,obj_PuertaPadre))&amp;&amp;(!place_meeting(x,y+velocidad,obj_Door))
     {y = y + velocidad;}
     }
+    
+if (!keyboard_check(vk_up)) &amp;&amp; (!keyboard_check(vk_down)) &amp;&amp; (!keyboard_check(vk_left)) &amp;&amp; (!keyboard_check(vk_right))
+{
+sprite_index = spr_Player;
+}
 </string>
           </argument>
         </arguments>
@@ -140,6 +180,41 @@ if (place_meeting(x,y,obj_Key_Magic))
     Key_Magic = true;
     audio_play_sound(snd_Diamond, 10, false)
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Gstión de armas:
+fire = mouse_check_button(mb_left)
+
+if (fire)
+
+{
+    if (can_shoot = 1)
+    {
+        balas = instance_create(x,y, obj_PlayerBullet)
+        balas.speed = 7;
+        balas.direction = point_direction(obj_Player.x, obj_Player.y, mouse_x, mouse_y)
+        can_shoot = 0; 
+        alarm [0] = 13;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -234,6 +309,30 @@ if (Key_Magic)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_Portal">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.checkpointR = noone;
+room_goto(room_bonus);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_Lives">
       <action>
         <libid>1</libid>
@@ -274,16 +373,13 @@ if (Key_Magic)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>scr_Death();
 audio_play_sound(snd_Dead,10,false);
 lives -= 1;
 if(lives &lt;= 0)
     {
     room_goto(Game_over);
-    }
-    else
-    {
-    room_restart();
+    audio_stop_sound (snd_Boss);
     }
 
 </string>

@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_Ball</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Inicialización de las variables
 
-grav = 0.5;
+grav = 0.7;
 hsp_carry = 0;
 hsp = 0;
 vsp = 0;
@@ -51,7 +51,55 @@ if (global.checkpointR == room)
 
 key_down = 0;
 
+disparar = 0;
+noRafaga = 1;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>noRafaga = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>disparar = 0;
 </string>
           </argument>
         </arguments>
@@ -150,12 +198,12 @@ if (key_space) &amp;&amp; (jumps &gt; 0)
 
 if (key_space) &amp;&amp; (place_meeting(x+1,y,obj_Wall) || place_meeting(x-1,y,obj_Wall))
     {
-    vsp = -jumpspeed
+    vsp = -jumpspeed;
     }
     
 // Salto variable
 
-if(vsp &lt; 0) &amp;&amp; (!key_space_held) vsp = max(vsp, -jumpspeed/2);
+if(vsp &lt; 0) &amp;&amp; (!key_space_held) vsp = max(vsp, -jumpspeed/3);
 
 var hsp_final = hsp + hsp_carry;
 hsp_carry = 0;
@@ -184,13 +232,79 @@ y += vsp;
 if (move != 0) image_xscale = move;
 if (place_meeting(x,y+1,obj_Wall))
     {
-    sprite_index = spr_Ball;
+    if (move != 0) sprite_index = spr_Ballmove; else sprite_index = spr_Ball;
     }
     else
     {
         if (vsp &lt; 0) sprite_index = spr_Balljump; else sprite_index = spr_Ballmid_air;
     }
 
+// DISPAROS!
+shoot = keyboard_check(ord('D'))
+
+if (shoot)
+    {
+    if (disparar = 1)
+    {
+    if(noRafaga)
+        {
+            balas = instance_create(x,y, obj_Bala);
+            balas.speed  = 6;
+            noRafaga = 0;
+            alarm [4] = 8;
+            if (hsp &gt; 0) {balas.direction = 0;}
+            if (hsp &lt; 0) {balas.direction = 180;}
+            if (( image_xscale == 1) &amp;&amp;( hsp == 0)){balas.direction = 0;}
+            if (( image_xscale == -1) &amp;&amp; (hsp == 0)){balas.direction = 180;}
+        }
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>lives -= 1;
+scr_Death();
 </string>
           </argument>
         </arguments>

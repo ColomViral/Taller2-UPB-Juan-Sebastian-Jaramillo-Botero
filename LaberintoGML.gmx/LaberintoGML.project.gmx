@@ -14,6 +14,7 @@
     <sound>sound\snd_Game_over</sound>
     <sound>sound\snd_Lives</sound>
     <sound>sound\snd_Intro</sound>
+    <sound>sound\snd_Boss</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Diamond</sprite>
@@ -21,7 +22,14 @@
     <sprite>sprites\spr_Goal</sprite>
     <sprite>sprites\spr_EnemyHorizontal</sprite>
     <sprite>sprites\spr_EnemyVertical</sprite>
+    <sprite>sprites\spr_EnemyVerticalUp</sprite>
     <sprite>sprites\spr_EnemyUpandDown</sprite>
+    <sprite>sprites\spr_BossMain</sprite>
+    <sprite>sprites\spr_BossSub</sprite>
+    <sprite>sprites\spr_BossSubSub</sprite>
+    <sprite>sprites\spr_BossMinion</sprite>
+    <sprite>sprites\spr_BossSubSubSub</sprite>
+    <sprite>sprites\sprite22</sprite>
     <sprite>sprites\spr_Player</sprite>
     <sprite>sprites\spr_Wall</sprite>
     <sprites name="Keys">
@@ -39,13 +47,27 @@
       <sprite>sprites\spr_Door_Magic</sprite>
     </sprites>
     <sprite>sprites\spr_Lives</sprite>
+    <sprite>sprites\spr_Checkpoint</sprite>
+    <sprite>sprites\spr_Portal</sprite>
+    <sprite>sprites\spr_VictoryPortal</sprite>
+    <sprite>sprites\spr_Bossbullet</sprite>
+    <sprite>sprites\spr_PlayerBullet</sprite>
+    <sprite>sprites\spr_PlayerUp</sprite>
+    <sprite>sprites\spr_PlayerDown</sprite>
+    <sprite>sprites\spr_PlayerLeft</sprite>
+    <sprite>sprites\spr_PlayerRight</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\GAME_OVER0</background>
     <background>background\YOU_WIN_</background>
+    <background>background\bck_Level</background>
+    <background>background\background4</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_Death.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\f_score</font>
   </fonts>
@@ -80,6 +102,19 @@
     <object>objects\obj_Score</object>
     <object>objects\obj_Gameover</object>
     <object>objects\obj_You_win</object>
+    <object>objects\obj_Checkpoint</object>
+    <object>objects\obj_Portal</object>
+    <object>objects\obj_VictoryPortal</object>
+    <objects name="Boss">
+      <object>objects\obj_BossMain</object>
+      <object>objects\obj_BossSub</object>
+      <object>objects\obj_BossSubSub</object>
+      <object>objects\obj_BossMinion</object>
+      <object>objects\obj_Bossbullet</object>
+    </objects>
+    <object>objects\obj_PlayerBullet</object>
+    <object>objects\obj_Bomb</object>
+    <object>objects\obj_RoomBonus</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Start</room>
@@ -89,6 +124,7 @@
     <room>rooms\Level_4</room>
     <room>rooms\The_End</room>
     <room>rooms\Game_over</room>
+    <room>rooms\room_bonus</room>
     <room>rooms\Level_Test</room>
   </rooms>
   <help>
