@@ -76,10 +76,10 @@ game_restart();
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_black);
-draw_text(view_xview[0] +480, 12, "puntos: ");
-draw_text(view_xview[0] +560, 12, score);
-draw_text(view_xview[0] +120, 12, "vidas: ");
-draw_text(view_xview[0] +180, 12, lives);
+draw_text(view_xview[0] +200,view_yview[0] + 6, "puntos: ");
+draw_text(view_xview[0] +280,view_yview[0] + 6, score);
+draw_text(view_xview[0] +30,view_yview[0] + 6, "vidas: ");
+draw_text(view_xview[0] +90,view_yview[0] + 6, lives);
 
 </string>
           </argument>
